@@ -1,0 +1,175 @@
+<!-- templates/myapp/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}About - Bilal Enterprises{% endblock %}
+{% load static %}
+{% block content %}
+
+      <!-- Main Section -->
+      <section
+      class="w-full bg-cover pt-20"
+      style="background-image: url('{% static '/Images/pexels-pixabay-40142.jpg' %}');"
+    >
+      <h1
+        class="lg:text-6xl text-4xl font-bold text-primary text-center mb-8 lg:py-12 py-8 uppercase  "
+      >
+        About us
+      </h1>
+      <div class="w-full  bg-white mx-auto px-2 rounded-t-[50px] lg:px-20 pb-20">
+        <div class="lg:pb-36 pb-20 text-center">
+          <h1 class="lg:text-4xl text-2xl py-12 font-bold uppercase mt-6">
+            Our Core Values
+          </h1>
+          <p class="max-w-screen-md text-2xl mx-auto">
+            The post-digital age show signs of slowing down, and the need of
+            rapid business transformation has never been greater.
+          </p>
+        </div>
+        <div class="max-w-[1300px] mx-auto flex flex-wrap lg:gap-8 gap-5 justify-between">
+          <div
+            class="md:w-[45%] my-5 shadow-2xl flex items-center justify-center flex-col rounded-2xl text-primary py-6 bg-gray-100"
+          >
+            <div class="bg-primary rounded-full relative w-20 h-20 -top-12 p-3">
+              <image src="{% static '/Images/pexels-markusspiske-97050.jpg' %}" alt="" />
+            </div>
+            <h1 class="text-5xl font-bold -mt-6 mb-6">Collaborate</h1>
+            <p class="pb-6 text-center px-12">
+              Fostering teamwork and partnership to drive innovation and achieve
+              business success.
+            </p>
+          </div>
+          <div
+            class="md:w-[45%] my-5 shadow-2xl flex items-center justify-center flex-col rounded-2xl text-primary py-6 bg-gray-100"
+          >
+            <div class="bg-primary rounded-full relative w-20 h-20 -top-12 p-3">
+              <image src="{% static '/Images/pexels-markusspiske-97050.jpg' %}" alt="" />
+            </div>
+            <h1 class="text-5xl font-bold -mt-6 mb-6">Collaborate</h1>
+            <p class="pb-6 text-center px-12">
+              Fostering teamwork and partnership to drive innovation and achieve
+              business success.
+            </p>
+          </div>
+          <div
+            class="md:w-[45%] my-5 shadow-2xl flex items-center justify-center flex-col rounded-2xl text-primary py-6 bg-gray-100"
+          >
+            <div class="bg-primary rounded-full relative w-20 h-20 -top-12 p-3">
+              <image src="{% static '/Images/pexels-markusspiske-97050.jpg' %}" alt="" />
+            </div>
+            <h1 class="text-5xl font-bold -mt-6 mb-6">Collaborate</h1>
+            <p class="pb-6 text-center px-12">
+              Fostering teamwork and partnership to drive innovation and achieve
+              business success.
+            </p>
+          </div>
+          <div
+            class="md:w-[45%] my-5 shadow-2xl flex items-center justify-center flex-col rounded-2xl text-primary py-6 bg-gray-100"
+          >
+            <div class="bg-primary rounded-full relative w-20 h-20 -top-12 p-3">
+              <image src="{% static '/Images/pexels-markusspiske-97050.jpg' %}" alt="" />
+            </div>
+            <h1 class="text-5xl font-bold -mt-6 mb-6">Collaborate</h1>
+            <p class="pb-6 text-center px-12">
+              Fostering teamwork and partnership to drive innovation and achieve
+              business success.
+            </p>
+          </div>
+        </div>
+        <div class="lg:pb-36 pb-20 text-center max-w-screen-xl mx-auto">
+          <h1 class="lg:text-4xl text-2xl py-12 font-bold uppercase mt-6">
+            Meet our team
+          </h1>
+          <p class="max-w-screen-md text-2xl mx-auto">
+            The post-digital age show signs of slowing down, and the need of
+            rapid business transformation has never been greater.
+          </p>
+        </div>
+        <div
+          class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-left gap-8 md:gap-0"
+        >
+          <div
+            class="md:w-[20%] hover:w-[35%] duration-[1500ms] h-[50vh] hover:mx-2 mx-1 rounded-3xl bg-cover  cursor-pointer"
+            style="background-image: url('{% static '/Images/pexels-linkedin-2182970.jpg' %}');"
+
+          >
+            <div
+              class="h-full w-full flex text-white justify-end flex-col group/item bg-black/35 hover:bg-primary/55 rounded-3xl duration-[2000ms]"
+            >
+              <h1
+                class="text-center text-4xl group-hover/item:text-3xl font-semibold px-8"
+              >
+                CEO
+              </h1>
+              <h1
+                class="invisible group-hover/item:visible duration-[1000ms] group-hover/item:text-4xl text-sm font-bold text-center"
+              >
+                Haji Bilal
+              </h1>
+              <div
+                class="invisible group-hover/item:visible duration-[1000ms] flex flex-row items-center justify-around group-hover/item:py-8 text-4xl"
+              >
+                <a href=""
+                  ><i class="fab fa-facebook hover:scale-125 duration-500"></i
+                ></a>
+                <a href=""
+                  ><i class="fab fa-twitter hover:scale-125 duration-500"></i
+                ></a>
+                <a href=""
+                  ><i class="fab fa-instagram hover:scale-125 duration-500"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div
+          class="md:w-[20%] hover:w-[35%] duration-[1500ms] h-[50vh] hover:mx-2 mx-1 rounded-3xl bg-cover  cursor-pointer"
+          style="background-image: url('{% static '/Images/pexels-linkedin-2182970.jpg' %}');"
+
+        >
+            <div
+              class="h-full w-full flex text-white justify-end flex-col group/item bg-black/35 hover:bg-primary/55 rounded-3xl duration-[2000ms]"
+            >
+              <h1
+                class="text-center text-4xl group-hover/item:text-3xl font-semibold px-8"
+              >
+                CEO
+              </h1>
+              <h1
+                class="invisible group-hover/item:visible duration-[1000ms] group-hover/item:text-4xl text-sm font-bold text-center"
+              >
+                Haji Bilal
+              </h1>
+              <div
+                class="invisible group-hover/item:visible duration-[1000ms] flex flex-row items-center justify-around group-hover/item:py-8 text-4xl"
+              >
+                <a href=""
+                  ><i class="fab fa-facebook hover:scale-125 duration-500"></i
+                ></a>
+                <a href=""
+                  ><i class="fab fa-twitter hover:scale-125 duration-500"></i
+                ></a>
+                <a href=""
+                  ><i class="fab fa-instagram hover:scale-125 duration-500"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="max-w-screen-xl rounded-3xl mx-auto my-24 flex flex-col md:flex-row items-center justify-around shadow-2xl py-16 ">
+            <div class=" md:w-1/3 px-4 md:px-0 text-primary">
+      <h1 class="text-3xl font-bold my-4 ">Ready To Get Started</h1>
+      <p>
+        The post-digital age show signs of slowing down, and the need of rapid
+        business transformation has never
+      </p>
+    </div>
+    <div class=" md:w-[45%] px-4 md:px-0 my-16 md:my-0">
+      <form class=" flex flex-row bg-white lg:w-[500px] rounded-xl py-1">
+        <input type="email" class=" block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primary peer mr-3" placeholder="Email" />
+        <button class=" text-white px-4 text-md uppercase font-bold bg-primary shadow-xl hover:bg-white hover:text-primary border border-primary rounded-tr-lg rounded-bl-lg duration-500 ">Subscribe</button>
+      </form>
+    </div>
+            </div>
+      </div>
+    </section>
+
+{% endblock %}

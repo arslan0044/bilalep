@@ -1,0 +1,153 @@
+<!-- templates/myapp/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Contact - Bilal Enterprises{% endblock %}
+{% load static %}
+{% block content %}
+<section class=" w-full  bg-cover pt-20"
+style="background-image: url('{% static '/Images/istockphoto-1450058572-1024x1024.jpg' %}');"
+>
+    <h1
+    class="lg:text-6xl text-4xl font-bold text-primary text-center mb-8 lg:py-12 py-8 uppercase"
+    >
+      Get in touch
+    </h1>
+    <div class="w-full bg-white mx-auto px-2 rounded-t-[50px] lg:px-20 pb-20">
+      <div class="max-w-[1200px] px-1 mx-auto flex items-center justify-center ">
+  <div class="basis-[40%] flex flex-col gap-12 pl-20 pt-2">
+      <div class="flex gap-5">
+      <div>
+        <i
+          class="fa-solid fa-envelope text-center rounded-full bg-primary p-2 px-3 text-3xl text-white"
+        ></i>
+      </div>
+      <div>
+        <h1 class="font-bold">Email</h1>
+        <p>info@bilalep.com</p>
+      </div>
+    </div>
+    <div class="flex gap-5">
+      <div>
+        <i
+          class="fa-solid fa-location-dot text-center rounded-full bg-primary p-2 px-3.5 text-3xl text-white"
+        ></i>
+      </div>
+      <div>
+        <h1 class="font-bold">Location</h1>
+        <p>Dipalpur Pakistan</p>
+      </div>
+    </div>
+    <div class="flex gap-5">
+      <div>
+        <i
+          class="fa-solid fa-phone text-center rounded-full bg-primary p-1.5 px-2.5 text-3xl text-white"
+        ></i>
+      </div>
+      <div>
+        <h1 class="font-bold">Phone</h1>
+        <p>+92301-7300786</p>
+      </div>
+    </div>
+  </div>
+  <div class="basis-[60%]">
+    <form class="max-w-xl w-full mx-auto my-12 mt-20 px-1 ">
+      <div class="grid md:grid-cols-2 md:gap-6 mt-5 ">
+        <div class="relative z-0 w-full mb-5 group">
+          <input
+            type="text"
+            id="First_Name"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primary peer"
+            placeholder=" "
+            required="true"
+            name="First_Name"
+          />
+          <label
+            for="First_Name"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-primary peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            First name
+          </label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+          <input
+            type="text"
+            id="Last_Name"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primary peer"
+            placeholder=" "
+            required="true"
+            name="Last_Name"
+          />
+          <label
+            for="Last_Name"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-primary peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            Last name
+          </label>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 md:gap-6 mb-5">
+        <div class="relative z-0 w-full mb-5 group">
+          <input
+            type="tel"
+            id="Phone_Number"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primary peer"
+            placeholder=" "
+            required="true"
+            name="Phone_Number"
+          />
+          <label
+            for="Phone_Number"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-primary peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            WhatsApp Number
+          </label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+          <input
+            type="email"
+            id="email"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primary peer"
+            placeholder=" "
+            required="true"
+            name="email"
+          />
+          <label
+            for="email"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-primary peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            Email Address
+          </label>
+        </div>
+      </div>
+      <div class="relative z-0 w-full mb-5 group mb-5">
+        <input
+          type="message"
+          id="message"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primary peer"
+          placeholder=" "
+          required="true"
+          name="message"
+        />
+        <label
+          for="message"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >
+          Message
+        </label>
+      </div>
+
+      <div class="items-center flex justify-left mt-8">
+        <button
+          type="submit"
+          class="text-white bg-primary text-xl border border-primary  hover:bg-white hover:text-primary shadow-xl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium w-full sm:w-auto px-5 py-2.5 mt-8 text-center uppercase dark:bg-primary dark:hover:bg-primary dark:focus:ring-blue-800 rounded-tr-lg rounded-bl-lg"
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+      </div>
+    
+  </section>
+  {% endblock %}

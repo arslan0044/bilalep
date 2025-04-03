@@ -1,0 +1,59 @@
+<!-- templates/myapp/index.html -->
+{% extends 'base.html' %}
+ {% block title %}Products - Bilal Enterprises
+ {%endblock%}
+  {% load static %}
+   {% block content %}
+
+<section
+  class="w-full bg-cover pt-20"
+  style="
+    background-image: url('{% static '/Images/pexels-markusspiske-97050.jpg' %}');
+  "
+>
+  <h2
+    class="lg:text-8xl text-4xl font-bold text-primary text-center mb-8 lg:py-12 py-8 uppercase"
+  >
+    Products
+  </h2>
+  <div class="max-w-screen-2xl bg-white mx-auto px-2 rounded-t-[50px] lg:px-20 pb-20">
+    <div class="mx-auto py-8 ">
+      <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5">
+        {% for item in products %}
+        <div class="bg-white rounded-xl shadow-xl pt-6 text-center w-full mx-auto">
+          {% if item.main_image %}
+          <img
+            src="{{ item.main_image }}"
+            alt="{{ item.product.title }}"
+            class="w-full h-[250px] object-cover rounded-lg mx-auto mb-4"
+          />
+          {% else %}
+          <img
+            src="/static/images/placeholder.jpg"
+            alt="No image available"
+            class="w-full h-[350px] object-cover rounded-lg mx-auto mb-4 opacity-50"
+          />
+          {% endif %}
+          <h2 class="text-lg font-semibold text-blue-700">
+            {{ item.product.title }}
+          </h2>
+          <p class="text-gray-600 mt-2 text-sm">
+            {{ item.product.description }}
+          </p>
+        </div>
+  
+        <!-- Add vertical dividers only between products (excluding last item) -->
+        {% if not forloop.last %}
+        <div class="h-[300px] border-l-2 border-primary hidden md:flex my-auto md:mx-20 xl:mx-28"></div>
+        {% endif %}
+        {% empty %}
+        <p class="col-span-full text-center text-gray-500 text-lg">
+          No products available.
+        </p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+</section>
+{% endblock %}

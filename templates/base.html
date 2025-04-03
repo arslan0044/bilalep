@@ -1,0 +1,266 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}MyBrand - Bilal Enterprises{% endblock %}</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#034EA2",
+              secondary: "#ED1C24",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      #valueCard {
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a
+          href="{% url 'home' %}"
+          class="text-3xl font-bold text-primary flex items-center uppercase"
+        >
+          <img
+            src="{% static 'Images/logo.svg' %}"
+            alt="Logo"
+            class="w-10 h-10 mr-2"
+          />
+          Bilal Enterprises
+        </a>
+
+        <!-- Menu Items (Hidden on Mobile) -->
+        <ul class="hidden md:flex space-x-8">
+          <li>
+            <a
+              href="{% url 'home' %}"
+              class="hover:text-primary transition text-gray-500 font-bold border-b-2 border-r-2 hover:border-t-2 hover:border-l-2 hover:border-b-0 hover:border-r-0 border-primary rounded-full shadow-xl px-2"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'about' %}"
+              class="hover:text-primary transition text-gray-500 font-bold border-b-2 border-r-2 hover:border-t-2 hover:border-l-2 hover:border-b-0 hover:border-r-0 border-primary rounded-full shadow-xl px-2"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'contact' %}"
+              class="hover:text-primary transition text-gray-500 font-bold border-b-2 border-r-2 hover:border-t-2 hover:border-l-2 hover:border-b-0 hover:border-r-0 border-primary rounded-full shadow-xl px-2"
+              >Contact Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'news' %}"
+              class="hover:text-primary transition text-gray-500 font-bold border-b-2 border-r-2 hover:border-t-2 hover:border-l-2 hover:border-b-0 hover:border-r-0 border-primary rounded-full shadow-xl px-2"
+              >News</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'product_list' %}"
+              class="hover:text-primary transition text-gray-500 font-bold border-b-2 border-r-2 hover:border-t-2 hover:border-l-2 hover:border-b-0 hover:border-r-0 border-primary rounded-full shadow-xl px-2"
+              >Products</a
+            >
+          </li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="menuToggle"
+          class="md:hidden text-primary focus:outline-none"
+        >
+          <img src="{% static 'Images/menu-icon.svg' %}" alt="Menu" class="w-6 h-6" />
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <ul
+        id="mobileMenu"
+        class="hidden flex flex-col bg-white space-y-3 py-3 px-4 md:hidden"
+      >
+        <li>
+          <a
+            href="{% url 'home' %}"
+            class="block text-gray-500 hover:font-bold hover:text-primary transition"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% url 'about' %}"
+            class="block text-gray-500 hover:font-bold hover:text-primary transition"
+            >About Us</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% url 'contact' %}"
+            class="block text-gray-500 hover:font-bold hover:text-primary transition"
+            >Contact Us</a
+          >
+        </li>
+        <li>
+          <a
+            href="news.html"
+            class="block text-gray-500 hover:font-bold hover:text-primary transition"
+            >News</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% url 'product_list' %}"
+            class="block text-gray-500 hover:font-bold hover:text-primary transition"
+            >Products</a
+          >
+        </li>
+        <!-- <li>
+          <a
+            href="careers.html"
+            class="block text-gray-500 hover:font-bold hover:text-primary transition"
+            >Careers</a
+          >
+        </li> -->
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      {% block content %}
+      <!-- Default content if no block is provided -->
+      <p>Welcome to Bilal Enterprises!</p>
+      {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 mt-10">
+      <div
+        class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left flex items-center justify-between"
+      >
+        <!-- Company Info -->
+        <div class="flex items-center justify-center md:justify-start">
+          <img
+            src="{% static 'Images/logo.svg' %}"
+            alt="Logo"
+            class="w-10 h-10 mx-auto md:mx-0"
+          />
+          <h2 class="text-3xl text-primary font-bold uppercase">
+            Bilal Enterprises
+          </h2>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="">
+          <div
+            class="flex items-center md:items-start list-none space-x-4 mb-4 md:mb-6"
+          >
+            <li>
+              <a
+                href="{% url 'about' %}"
+                class="text-gray-500 hover:text-primary font-bold font-serif transition"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                href="{% url 'contact' %}"
+                class="text-gray-500 hover:text-primary font-bold font-serif transition"
+                >Contact Us</a
+              >
+            </li>
+            <li>
+              <a
+                href="{% url 'news' %}"
+                class="text-gray-500 hover:text-primary font-bold font-serif transition"
+                >News</a
+              >
+            </li>
+            <li>
+              <a
+                href="{% url 'product_list' %}"
+                class="text-gray-500 hover:text-primary font-bold font-serif transition"
+                >Products</a
+              >
+            </li>
+          </div>
+
+          <div class="flex flex-col items-start space-y-2 mb-8">
+            <div class="flex items-center space-x-2 text-primary">
+              <i class="fa-solid fa-envelope text-xl w-[50px]"></i>
+              <p>info@bilalep.com</p>
+            </div>
+            <div class="flex items-center space-x-2 text-primary">
+              <i class="fa-solid fa-phone text-xl w-[50px]"></i>
+              <p>+92301-7300786</p>
+            </div>
+            <div class="flex items-center space-x-2 text-primary">
+              <i class="fa-solid fa-location-dot text-xl w-[50px]"></i>
+              <p>Near Ittefaq Rice Mills Okara Road Deaplpur, 56180.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="flex flex-col items-center md:items-center">
+          <h2 class="text-3xl text-secondary font-bold">Follow Us Here</h2>
+          <div class="flex justify-center md:justify-start mt-3 space-x-6">
+            <a href="#" class="text-primary hover:text-secondary transition">
+              <i class="fa-brands fa-facebook text-4xl"></i>
+            </a>
+            <a href="#" class="text-primary hover:text-secondary transition">
+              <i class="fa-brands fa-twitter text-4xl"></i>
+            </a>
+            <a href="#" class="text-primary hover:text-secondary transition">
+              <i class="fa-brands fa-instagram text-4xl"></i>
+            </a>
+            <a href="#" class="text-primary hover:text-secondary transition">
+              <i class="fa-brands fa-linkedin text-4xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-center text-gray-500 mt-8 border-t border-gray-700 pt-4">
+        <p>
+          © 2025 Bilal Enterprises. Powered by
+          <a href="https://www.nano.com.pk/" class="text-primary"
+            >NANO Technologies</a
+          >
+          All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="{% static 'JavaScript/main.js' %}"></script>
+
+    <!-- Additional Scripts -->
+    {% block scripts %}
+    <!-- Placeholder for additional scripts -->
+    {% endblock %}
+  </body>
+</html>

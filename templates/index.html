@@ -1,0 +1,133 @@
+<!-- templates/myapp/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home - Bilal Enterprises{% endblock %}
+{% load static %}
+{% block content %}
+    <!-- Main Section -->
+     <!-- Navigation Slider -->
+     <section class="relative w-full lg:h-screen md:h-[600px] sm:h-[400px] h-[300px] overflow-hidden">
+      <!-- Carousel Container -->
+      <div id="carousel" class="flex transition-transform duration-1000 ease-in-out">
+        {% for slider in sliders %}
+        <div class="relative w-full lg:h-screen md:h-[600px] sm:h-[400px] h-[300px] flex-shrink-0">
+          <img
+            src="{{ slider.image.url }}" 
+            alt="{{ slider.title }}" 
+            class="w-full object-cover"
+          />
+          <div class="absolute inset-0 flex flex-col justify-center items-center text-center">
+            <h2 class="lg:text-[100px] md:text-[80px] sm:text-[50px] font-bold text-primary uppercase">{{ slider.title }}</h2>
+            <p class="lg:text-4xl md:text-xl font-bold mt-2 lg:px-[20px] sm:px-[10px] text-secondary">{{ slider.description }}</p>
+            
+            <a href="{{ slider.link }}">
+              <button class="mt-8 p-1.5 px-3 border border-primary shadow-xl text-white bg-primary text-xl font-bold rounded-bl-lg rounded-tr-lg hover:bg-white hover:text-primary transition">
+                DISCOVER
+              </button>
+            </a>
+          </div>
+        </div>
+        {% empty %}
+        <p>No sliders available.</p>
+        {% endfor %}
+      </div>
+<!-- Navigation Dots (Fixed) -->
+<div class="absolute left-1 top-1/2 transform -translate-y-1/2 grid col-span-1 space-y-2">
+  {% for slider in sliders %}
+  <button
+    onclick="goToSlide({{ forloop.counter0 }})"
+    class="dot w-[15px] h-[15px] rounded-full bg-white hover:w-[30px] hover:rounded-lg"
+  ></button>
+  {% endfor %}
+</div>
+</section>    
+      <!-- Our Products -->
+       <section>
+          <div class="border-b-2 border-r-2 hover:border-t-2 hover:border-l-2 hover:border-b-0 hover:border-r-0  border-primary shadow-xl my-20 rounded-full w-[250px] mx-auto">
+            <h1 class="text-4xl text-primary text-center my-1 font-semibold pb-1">Our Products</h1>
+          </div>
+          <div class=" w-4/5 max-w-[1400px] max-xl:w-11/12 max-sm:w-full max-sm:px-2 items-center md:mt-20 py-10 px-8 mx-auto xl:px-5 !z-10">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-2">
+                <!-- Loop through products -->
+                {% for item in products_with_main_images %}
+                  <a href="{{ item.product.get_absolute_url }}" class="border border-[transparent] rounded-[21px] md:row-span-3 row-span-1 max-md:h-[240px] overflow-hidden">
+                    <!-- Use the main image of the product -->
+                    {% if item.main_image %}
+                      <img
+                        src="{{ item.main_image.image.url }}"
+                        alt="{{ item.main_image.alt_text|default:item.product.title }}"
+                        class="h-full w-full object-cover md:hover:scale-110 transition duration-2500 ease-out"
+                      />
+                    {% else %}
+                      <p>No image available</p>
+                    {% endif %}
+                  </a>
+                {% empty %}
+                  <!-- Fallback message if no products are available -->
+                  <p class="col-span-full text-center text-gray-500">No products available.</p>
+                {% endfor %}
+              </div>
+          </div>
+       </section>
+<!-- Our Values -->
+ <section>
+    <div class="border-b-2 border-r-2 hover:border-t-2 hover:border-l-2 hover:border-b-0 hover:border-r-0  border-primary shadow-xl my-20 rounded-full w-[200px] mx-auto">
+        <h1 class="text-4xl text-primary text-center my-1 font-semibold pb-1">Our Values</h1>
+    </div>
+    
+    <div class="flex items-center justify-between mt-20">
+        <div class="w-1/2 flex flex-col mt-20 py-10 gap-4 max-lg:w-full max-xl:mt-3 max-sm:mt-5 ">
+          <!-- Loop through values -->
+          {% for value in values %}
+          <div class="w-[400px] relative group h-[70px] md:hover:w-[820px] md:hover:bg-primary cursor-pointer px-10 py-2 border border-secondary rounded-tr-full rounded-br-full transition-all duration-500 ease-in-out flex items-center gap-x-3 md:max-xl:w-[300px] md:max-xl:hover:w-[660px] max-md:w-[80%] max-sm:w-[95%] border-l-0 max-md:bg-primary" onmouseover="toggleHover(true, '{{ value.title|slugify }}')" onmouseout="toggleHover(false, '{{ value.title|slugify }}')">
+            <!-- Icon -->
+            <div class="w-[60px] h-[60px] max-md:w-[50px] max-md:h-[50px]">
+              <img src="{% static  value.image  %}" alt="{{ value.title }}" class="w-full h-full object-contain max-md:brightness-0 max-md:invert" id="icon-{{ value.title|slugify }}">
+            </div>
+
+            <!-- Title -->
+            <p id="title-{{ value.title|slugify }}" class="font-heading font-[500] capitalize text-center flex-1 text-primary text-[18px] max-sm:text-[16px] max-md:text-white transition-opacity duration-500">{{ value.title }}</p>
+
+            <!-- Hover Content -->
+            <div id="hover-content-{{ value.title|slugify }}" class="absolute right-[30px] top-[-40px] opacity-0 transition-opacity duration-500 invisible">
+              <div class="relative">
+                <!-- Hover Card -->
+                <div class="px-3 py-4 h-full min-h-[220px] max-w-[300px] border-2 border-secondary rounded-[20px] bg-white">
+                  <!-- Top Comma Icon -->
+                  <div class="absolute top-[-25px] left-[-25px]">
+                    <img src="{% static 'Images/comma.png' %}" alt="commas" width="40" height="40">
+                  </div>
+
+                  <!-- Hover Text -->
+                  <div class="flex flex-col justify-between h-[130px] mt-[40px]">
+                    <p class="font-heading capitalize font-bold text-primary text-[20px] text-center">{{ value.title }}</p>
+                    <p class="font-heading font-light text-white rounded-lg p-1 text-[14px] text-center bg-primary">
+                      {{ value.description }}
+                    </p>
+                  </div>
+
+                  <!-- Bottom Comma Icon -->
+                  <div class="absolute bottom-[-20px] right-[-28px]">
+                    <img src="{% static 'Images/comma.png' %}" alt="commas" width="40" height="40">
+                  </div>
+                </div>
+
+                <!-- Floating Icon Above Card -->
+                <div class="absolute top-[-15%] left-[50%] transform -translate-x-[50%] flex justify-center items-center">
+                  <div class="w-[150px] bg-primary-color flex justify-center px-[20px] pt-[20px] rounded-tr-full rounded-tl-full">
+                    <div class="w-[60px] h-[60px]">
+                      <img src="{% static  value.image  %}" alt="{{ value.title }}" class="w-full h-full object-contain">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div>
+            <img src="{% static 'Images/pexels-pixabay-161573.jpg' %}" alt="" class="w-[800px] h-[600px] object-cover rounded-bl-lg rounded-tl-full">
+        </div>
+    </div>
+ </section>
+{% endblock %}
